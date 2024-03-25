@@ -11,7 +11,18 @@ public class View extends JFrame {
     public JLabel userScoreLabel;
     public JLabel turnLabel;
     public JLabel opponentScoreLabel;
+    private Controller controller;
 
+    public void setController(Controller controller){
+        this.controller = controller;
+    }
+
+    public static void GUI(){
+        SwingUtilities.invokeLater(()->{
+            View view = new View();
+            view.setVisible(true);
+        });
+    }
 
     public View() {
         super("Rock, Paper, Scissors");
@@ -91,12 +102,6 @@ public class View extends JFrame {
         resultPanel.add(outcomeLabel);
         resultPanel.add(opponentChoiceLabel);
         add(resultPanel, BorderLayout.CENTER);
-
-        display();
-    }
-
-    public void display() {
-        setVisible(true);
     }
 
     private class OptionActionListener implements ActionListener {
@@ -109,9 +114,30 @@ public class View extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             switch (option) {
-                case 0 -> userChoiceLabel.setText("Rock");
-                case 1 -> userChoiceLabel.setText("Paper");
-                case 2 -> userChoiceLabel.setText("Scissors");
+                case 0 -> {
+                    userChoiceLabel.setText("Rock");
+                    try {
+                        controller.round();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                case 1 -> {
+                    userChoiceLabel.setText("Paper");
+                    try {
+                        controller.round();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                case 2 -> {
+                    userChoiceLabel.setText("Scissors");
+                    try {
+                        controller.round();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
                 default -> userChoiceLabel.setText("ERROR");
             }
         }
