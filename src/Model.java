@@ -27,7 +27,8 @@ public class Model {
             case "Loser!" -> opponentScore++;
         }
         ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(userScore,opponentScore);
+        arr.add(userScore);
+        arr.add(opponentScore);
         return arr;
     }
 
@@ -52,7 +53,6 @@ public class Model {
     public String robotChoice(){
         Random rand = new Random();
         int randomNum = rand.nextInt((3 - 1) + 1) + 1;
-        System.out.println(randomNum);
         String result = "Rock";
         switch (randomNum){
             case 1 -> result = "Rock";

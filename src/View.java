@@ -17,13 +17,6 @@ public class View extends JFrame {
         this.controller = controller;
     }
 
-    public static void GUI(){
-        SwingUtilities.invokeLater(()->{
-            View view = new View();
-            view.setVisible(true);
-        });
-    }
-
     public View() {
         super("Rock, Paper, Scissors");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,6 +95,8 @@ public class View extends JFrame {
         resultPanel.add(outcomeLabel);
         resultPanel.add(opponentChoiceLabel);
         add(resultPanel, BorderLayout.CENTER);
+
+        setVisible(true);
     }
 
     private class OptionActionListener implements ActionListener {
@@ -115,24 +110,24 @@ public class View extends JFrame {
         public void actionPerformed(ActionEvent e) {
             switch (option) {
                 case 0 -> {
-                    userChoiceLabel.setText("Rock");
                     try {
+                        userChoiceLabel.setText("Rock");
                         controller.round();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
                 }
                 case 1 -> {
-                    userChoiceLabel.setText("Paper");
                     try {
+                        userChoiceLabel.setText("Paper");
                         controller.round();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
                 }
                 case 2 -> {
-                    userChoiceLabel.setText("Scissors");
                     try {
+                        userChoiceLabel.setText("Scissors");
                         controller.round();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
