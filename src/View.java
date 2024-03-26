@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 public class View extends JFrame {
@@ -110,28 +111,31 @@ public class View extends JFrame {
         public void actionPerformed(ActionEvent e) {
             switch (option) {
                 case 0 -> {
+                    userChoiceLabel.setText("Rock");
                     try {
-                        userChoiceLabel.setText("Rock");
                         controller.round();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
+                    userChoiceLabel.setText("Rock");
                 }
                 case 1 -> {
+                    userChoiceLabel.setText("Paper");
                     try {
-                        userChoiceLabel.setText("Paper");
                         controller.round();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
+                    userChoiceLabel.setText("Paper");
                 }
                 case 2 -> {
+                    userChoiceLabel.setText("Scissors");
                     try {
-                        userChoiceLabel.setText("Scissors");
                         controller.round();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }
+                    userChoiceLabel.setText("Scissors");
                 }
                 default -> userChoiceLabel.setText("ERROR");
             }

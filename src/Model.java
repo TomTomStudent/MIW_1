@@ -45,7 +45,7 @@ public class Model {
     }
 
     public int checkTurn(int turn){
-        if (turn>15)
+        if (turn>30)
             return 1;
         return 0;
     }

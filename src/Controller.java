@@ -19,8 +19,7 @@ public class Controller {
         view.opponentChoiceLabel.setText("Chosen");
         String result = model.determineWinner(view.userChoiceLabel.getText(),opponentChoice);
         view.opponentChoiceLabel.setText(opponentChoice);
-        System.out.println(opponentChoice);
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         view.outcomeLabel.setText(result);
         ArrayList<Integer> arrayList = model.adjustScore(userScore,opponentScore,result);
         userScore = arrayList.get(0);
@@ -30,9 +29,9 @@ public class Controller {
         turn++;
         view.turnLabel.setText(String.valueOf(turn));
         if (model.endOfRoundCheck(model.checkTurn(turn), model.checkScore(userScore,opponentScore))==1){
+            System.out.println(model.declareWinner(userScore,opponentScore));
+            Thread.sleep(3000);
             System.exit(1);
         }
-        view.userChoiceLabel.setText("Waiting...");
-        view.opponentChoiceLabel.setText("Waiting...");
     }
 }
